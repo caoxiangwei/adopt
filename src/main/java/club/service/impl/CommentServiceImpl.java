@@ -8,13 +8,8 @@ import club.pojo.Comment;
 import club.pojo.Pet;
 import club.pojo.User;
 import club.service.AnswerService;
-import club.pojo.Pet;
-import club.pojo.User;
-import club.dao.AdminMapper;
-import club.pojo.*;
 import club.service.CommentService;
 import club.service.PetService;
-import club.service.UserService;
 import club.service.UserService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.github.pagehelper.PageHelper;
@@ -37,8 +32,6 @@ public class CommentServiceImpl implements CommentService {
     private UserMapper userMapper;
     @Resource
     private PetMapper petMapper;
-    @Resource
-    private AdminMapper adminMapper;
     @Resource
     private UserService userService;
     @Resource
@@ -103,28 +96,6 @@ public class CommentServiceImpl implements CommentService {
     public Comment findById(Integer id) {
         return commentMapper.selectById(id);
     }
-
-    @Override
-    public PageInfo<Comment> all(String userName, Integer pageNum, Integer pageSize) {
-        PageHelper.startPage(pageNum,pageSize);
-        EntityWrapper<Comment> wrapper = new EntityWrapper<>();
-        if(userName!=null&&!"".equals(userName)){
-            wrapper.like("userName",userName);
-
-        }
-        List<Comment> list = commentMapper.selectList(wrapper);
-        for(Comment a : list){
-            Pet pet = petMapper.selectById(a.getPetId());
-            a.setPet(pet);
-            User user = userMapper.selectById(a.getUserId());
-            a.setUser(user);
-            Admins admins = adminMapper.selectById(a.getAdminsId());
-            a.setAdmin(admins);
-        }
-        PageInfo<Comment> pageInfo = new PageInfo<>(list);
-        return pageInfo;
-    }
-
     @Override
     public int update(Comment adoptAnimal) {
         return commentMapper.updateById(adoptAnimal);

@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 
 @Controller
-@RequestMapping("/adopt")
+@RequestMapping("adopt")
 public class AdoptAnimalController {
     @Resource
     private AdoptAnimalService adoptAnimalService;

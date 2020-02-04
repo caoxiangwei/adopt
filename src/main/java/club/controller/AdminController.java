@@ -68,12 +68,12 @@ public class AdminController {
     @RequestMapping("/admins")
     @ResponseBody
     public Message admins(@RequestParam(required = false) String adminName,@RequestParam("pn") Integer pageNum){
-        Integer pageSize = 4;
+        Integer pageSize = 5;
         if(pageNum == null){
             pageNum = 1;
         }
-        PageInfo<Admins> list = adminService.adminPage(adminName, pageNum, pageSize);
-        return Message.success().add("pageInfo",list);
+        PageInfo<Admins> pageInfo = adminService.adminPage(adminName, pageNum, pageSize);
+        return Message.success().add("pageInfo",pageInfo);
     }
 
     @RequestMapping("/admin")

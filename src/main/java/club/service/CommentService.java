@@ -8,12 +8,21 @@ import java.util.List;
 import club.pojo.Comment;
 import com.github.pagehelper.PageInfo;
 
+/**
+ * @author kang
+ */
 public interface CommentService {
+    /**
+     * @param userName
+     * @param pn
+     * @param pageSize
+     * @return
+     */
     PageInfo<Comment> allComment(String userName,Integer pn,Integer pageSize);
     List<Comment> petComments(Integer petId);
     Integer create(Integer userId, Integer petId, String content);
     Comment findById(Integer id);
-    PageInfo<Comment> all(String userName, Integer pageNum, Integer pageSize);
+    //PageInfo<Comment> all(String userName, Integer pageNum, Integer pageSize);
     int update(Comment adoptAnimal);
     int delete(Integer id);
 }

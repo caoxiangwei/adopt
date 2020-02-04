@@ -91,6 +91,4 @@ public class AdoptAnimalServiceImpl implements AdoptAnimalService {
         Integer integer = adoptAnimalMapper.updateById(adoptAnimal);
         return integer;
     }
-
-
 }

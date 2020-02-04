@@ -442,7 +442,7 @@
     function to_page(pn){
         $.ajax({
             url:"${path}/admin/admins",
-            data:"pn="+pn,
+            data:"pn=" + pn,
             type:"GET",
             success:function(result){
                 resolving(result);

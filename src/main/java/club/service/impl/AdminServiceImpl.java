@@ -4,13 +4,16 @@ import club.dao.AdminMapper;
 import club.pojo.Admins;
 import club.service.AdminService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.github.pagehelper.PageHelper;
+import com.baomidou.mybatisplus.plugins.pagination.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
+/**
+ * @author kang
+ */
 @Service
 @Transactional
 public class AdminServiceImpl implements AdminService {
@@ -38,12 +41,6 @@ public class AdminServiceImpl implements AdminService {
         }
         return null;
     }
-
-    @Override
-    public PageInfo<Admins> allAdmin(String adminName, int pageNum, int pageSize) {
-        return null;
-    }
-
     @Override
     public int add(Admins admins) {
         return adminMapper.insert(admins);

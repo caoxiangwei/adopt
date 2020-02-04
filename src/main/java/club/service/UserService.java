@@ -1,12 +1,10 @@
 package club.service;
 
 import club.pojo.User;
-
 import club.pojo.User;
 import com.github.pagehelper.PageInfo;
-
-
 import java.util.List;
+import com.github.pagehelper.PageInfo;
 
 public interface UserService {
     List<User> findByName(String userName, Integer state);
