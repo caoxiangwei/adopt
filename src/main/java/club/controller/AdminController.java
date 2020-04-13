@@ -42,7 +42,7 @@ public class AdminController {
     @RequestMapping("/update")
     @ResponseBody
     public Message update(Admins admins, MultipartFile file){
-        if (file != null){
+        if (file != null && file.getSize() > 0){
             String pic = FileLoad.uploadAdminPic(file);
             admins.setPic(pic);
         }
@@ -68,7 +68,7 @@ public class AdminController {
     @RequestMapping("/admins")
     @ResponseBody
     public Message admins(@RequestParam(required = false) String adminName,@RequestParam("pn") Integer pageNum){
-        Integer pageSize = 5;
+        Integer pageSize = 4;
         if(pageNum == null){
             pageNum = 1;
         }
