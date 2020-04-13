@@ -2,7 +2,6 @@ package club.controller;
 
 import club.pojo.Admins;
 import club.service.AdminService;
-import club.service.UserService;
 import club.util.Message;
 import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
